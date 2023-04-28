@@ -1,0 +1,63 @@
+<html>
+  
+<head>
+    <link 
+     rel="stylesheet"
+     href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        .i-am-centered {
+            margin: auto;
+            max-width: 300px;
+            padding-top: 20%;
+        }
+    </style>
+</head>
+  
+<body>
+    <div class="i-am-centered">
+        <form action="aadhar_upload" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label>Gate Score Card</label>
+                {{ form.file }}
+            </div>
+            <button type="submit" name="file" class="btn btn-primary">Submit Gate Score Card</button>
+            <br><br>
+            <div class="form-group">
+                <label>Name</label>
+                {{ form.name}}
+            </div>
+            <div class="form-group">
+                <label>Parent's Name</label>
+                {{ form.parent_name }}
+            </div>
+            <div class="form-group">
+                <label>Registration No.</label>
+                {{ form.reg_no }}
+            </div>
+            <div class="form-group">
+                <label>Examination Paper</label>
+                {{ form.paper }}
+            </div>
+            <div class="form-group">
+                <label>Score</label>
+                {{ form.gate_score }}
+            </div>
+            <div class="form-group">
+                <label>All India Rank</label>
+                {{ form.air }}
+            </div>
+            <div class="form-group">
+                <label>Marks</label>
+                {{ form.marks }}
+            </div>
+
+            <button type="submit" name="details" class="btn btn-primary">Submit Details</button>
+        </form>
+    </div>
+
+
+</body>
+  
+</html>

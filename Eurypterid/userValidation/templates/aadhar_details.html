@@ -1,0 +1,45 @@
+<html>
+  
+<head>
+    <link 
+     rel="stylesheet"
+     href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        .i-am-centered {
+            margin: auto;
+            max-width: 300px;
+            padding-top: 20%;
+        }
+    </style>
+</head>
+  
+<body>
+    <div class="i-am-centered">
+        <form action="aadhar_upload" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label>Aadhar Card</label>
+                {{ form.file }}
+            </div>
+            <button type="submit" name="file" class="btn btn-primary">Submit Aadhar Card</button>
+            <div class="form-group">
+                <label>Name</label>
+                {{ form.name}}
+            </div>
+            <div class="form-group">
+                <label>DOB</label>
+                {{ form.dob }}
+            </div>
+            <div class="form-group">
+                <label>Aadhar Number</label>
+                {{ form.aadhar_no }}
+            </div>
+            <button type="submit" name="details" class="btn btn-primary">Submit Details</button>
+        </form>
+    </div>
+
+
+</body>
+  
+</html>
