@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   
 <head>
@@ -14,6 +15,24 @@
 </head>
   
 <body>
+
+    <script>
+        function submitAadhar(action){
+            document.getElementById("id_name").removeAttribute("required");
+            document.getElementById("id_dob").removeAttribute("required");
+            document.getElementById("id_aadhar_no").removeAttribute("required");
+            document.getElementById("id_gender").removeAttribute("required");
+        }
+
+        function submitAadharDetails(action){
+            document.getElementById("id_name").setAttribute("required", "true");
+            document.getElementById("id_dob").setAttribute("required", "true");
+            document.getElementById("id_aadhar_no").setAttribute("required", "true");
+            document.getElementById("id_gender").setAttribute("required", "true");
+        }
+
+    </script>
+
     <div class="i-am-centered">
         <form action="aadhar_upload" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -22,10 +41,10 @@
                 <label>Aadhar Card</label>
                 {{ form.file }}
             </div>
-            <button type="submit" name="file" class="btn btn-primary">Submit Aadhar Card</button>
+            <input type="submit" name="file" class="btn btn-primary" onclick="submitAadhar()">Submit Aadhar Card</button>
             <div class="form-group">
                 <label>Name</label>
-                {{ form.name}}
+                {{ form.name }}
             </div>
             <div class="form-group">
                 <label>DOB</label>
@@ -35,7 +54,11 @@
                 <label>Aadhar Number</label>
                 {{ form.aadhar_no }}
             </div>
-            <button type="submit" name="details" class="btn btn-primary">Submit Details</button>
+            <div class="form-group">
+                <label>Gender</label>
+                {{ form.gender}}
+            </div>
+            <input type="submit" name="details" class="btn btn-primary">Submit Details</button>
         </form>
     </div>
 

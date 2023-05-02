@@ -3,9 +3,9 @@ from django import forms
 class AadharUploadForm(forms.Form):
     file = forms.FileField()
     name = forms.CharField(max_length=50)
-    dob = forms.DateField()
+    dob = forms.CharField(max_length=10)
     aadhar_no = forms.CharField(max_length=14)
-
+    gender = forms.CharField(max_length=10)
 class GateUploadForm(forms.Form):
     file = forms.FileField()
     name = forms.CharField(max_length=50)
