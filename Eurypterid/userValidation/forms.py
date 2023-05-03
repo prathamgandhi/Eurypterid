@@ -3,7 +3,7 @@ from django import forms
 class AadharUploadForm(forms.Form):
     file = forms.FileField()
     name = forms.CharField(max_length=50)
-    dob = forms.CharField(max_length=10)
+    dob = forms.DateField(widget=forms.widgets.DateInput(attrs={'type': 'date'}))
     aadhar_no = forms.CharField(max_length=14)
     gender = forms.CharField(max_length=10)
 class GateUploadForm(forms.Form):

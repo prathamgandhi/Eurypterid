@@ -10,6 +10,8 @@ class AadharCandidate(models.Model):
     name = models.CharField(max_length=50)
     dob = models.DateField()
     aadhar_no = models.CharField(max_length=14)
+    gender = models.CharField(max_length=10)
+    validationRequired = models.BooleanField(default=False)
 
 class GateCandidate(models.Model):
     file = models.FileField()
