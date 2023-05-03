@@ -7,9 +7,25 @@
      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <style>
         .i-am-centered {
+            padding: 100px;
             margin: auto;
-            max-width: 300px;
-            padding-top: 20%;
+            width: 800px;
+            border-radius: 20px;
+            background-color: #f2f2f2;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn {
+            margin-top: 1%;
+            margin-bottom: 1%;
+        }
+        .text-center {
+            width: 100%;
+            display: block;
         }
     </style>
 </head>
@@ -18,6 +34,7 @@
 
     <script>
         function submitAadhar(action){
+            document.getElementById("id_file").setAttribute("required", "true");
             document.getElementById("id_name").removeAttribute("required");
             document.getElementById("id_dob").removeAttribute("required");
             document.getElementById("id_aadhar_no").removeAttribute("required");
@@ -34,39 +51,42 @@
 
     </script>
 
-    <div class="i-am-centered">
-        <form action="aadhar_upload" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            
-            <div class="form-group">
-                <label>Aadhar Card</label>
-                {{ form.file }}
-            </div>
-            <div class="form-group">
-                <input type="submit" name="file_upload" class="btn btn-primary" onclick="submitAadhar()">Submit Aadhar Card</button>
-            </div>
-            <div class="form-group">
-                <label>Name</label>
-                {{ form.name }}
-            </div>
-            <div class="form-group">
-                <label>DOB</label>
-                {{ form.dob }}
-            </div>
-            <div class="form-group">
-                <label>Aadhar Number</label>
-                {{ form.aadhar_no }}
-            </div>
-            <div class="form-group">
-                <label>Gender</label>
-                {{ form.gender}}
-            </div>
-            <div class="form-group">
-                <input type="submit" name="details" class="btn btn-primary" onclick="submitAadharDetails()">Submit Details</button>
-            </div>
-        </form>
+    <div style = 'display:flex; position:absolute; top:0; bottom:0; right:0; left:0;'>
+        <div class="i-am-centered">
+            <form action="aadhar_upload" method="POST" enctype="multipart/form-data" class="text-center">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label>Aadhar Card</label>
+                    {{ form.file }}
+                </div>
+                <br>
+                <input type="submit" name="file_upload" class="btn btn-primary" onclick="submitAadhar()" value="Submit Aadhar Card"></button>
+                <br>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label>Name</label>
+                    {{ form.name }}
+                </div>
+                <div class="form-group">
+                    <label>DOB</label>
+                    {{ form.dob }}
+                </div>
+                <div class="form-group">
+                    <label>Aadhar Number</label>
+                    {{ form.aadhar_no }}
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    {{ form.gender}}
+                </div>
+                <br>
+                <br>
+                <input type="submit" name="details" class="btn btn-primary" onclick="submitAadharDetails()" value="Submit Aadhar Details"></button>
+            </form>
+        </div>
     </div>
-
 
 </body>
   
