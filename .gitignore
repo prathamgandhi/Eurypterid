@@ -1,0 +1,5 @@
+env/
+aadhar_filter.py
+.pip_cache
+static/
+db.sqlite3
